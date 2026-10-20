@@ -1,0 +1,9 @@
+{
+  "network": "botTestnet",
+  "chainId": 968,
+  "contractAddress": "0xe9cEf47279c40d44fc11937c949FAC7C7794e70C",
+  "transactionHash": "0x1884307c4b3c883285f90dd02d4574dacd3cdb28b50431fa329cbd39af738c68",
+  "blockNumber": 27099023,
+  "deployer": "0x8b2119E6D52DCda17ce233d16Ef2313E6750028E",
+  "timestamp": "2026-10-16T20:49:12Z"
+}

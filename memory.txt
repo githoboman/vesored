@@ -1,0 +1,165 @@
+================================================================================
+VESORED - BOT CHAIN MIGRATION MEMORY & PROGRESS TRACKER
+================================================================================
+Last Updated: 2026-10-14
+Target Network: BOT Chain (EVM Layer 1 for DePIN and AI Applications)
+Official Documentation: https://dev-docs.botchain.ai/docs/intro
+Repository Path: c:/Users/OWNER/Desktop/vesored
+
+================================================================================
+1. EXECUTIVE SUMMARY & MIGRATION GOALS
+================================================================================
+Vesored is an AI-driven behavioral portfolio analytics and risk management
+platform. The project has been fully migrated from legacy networks (ICP Canisters
+and Injective Exchange modules) to BOT Chain.
+
+Key Highlights of the Migration:
+- 100% EVM Compatibility: Replaced Motoko with production-ready Solidity contract.
+- Sub-Second Block Finality: Configured for ~0.75-second transaction confirmations.
+- Ultra-Low Gas Fees: Average ~$0.06 transaction fees, ideal for frequent updates.
+- Native Utility Token ($BOT & $tBOT): Full support for native balance and gas.
+- Dual-Chain Ready: Pre-configured for Bohr Testnet (968) and Mainnet (677).
+- EVM Wallet Support: 1-click connection for MetaMask, BO Wallet, and browser wallets.
+
+================================================================================
+2. BOT CHAIN NETWORK SPECIFICATIONS
+================================================================================
+[TESTNET - BOHR TESTNET]
+- Network Name:         BOT Chain Testnet (Bohr)
+- Chain ID:             968 (Hex: 0x3c8)
+- RPC Endpoint:         https://rpc.bohr.life
+- Currency Symbol:      tBOT
+- Currency Decimals:    18
+- Block Explorer:       https://scan.bohr.life
+- Testnet Faucet:       https://faucet.botchain.ai/basic
+- Bridge (Testnet):     https://bridge.bohr.life
+
+[MAINNET]
+- Network Name:         BOT Chain Mainnet
+- Chain ID:             677 (Hex: 0x2a5)
+- RPC Endpoint:         https://rpc.botchain.ai
+- Currency Symbol:      BOT
+- Currency Decimals:    18
+- Total Supply:         150,000,000 BOT
+- Block Explorer:       https://scan.botchain.ai
+- DEX:                  https://dex.botchain.ai
+- Bridge:               https://bridge.botchain.ai
+- Ecosystem Wallet:     https://wallet.botchain.ai
+
+================================================================================
+3. COMPLETED CODEBASE MIGRATION AUDIT
+================================================================================
+A. Smart Contract Architecture (EVM):
+   - Contract: `src/backend/contracts/VesoredPortfolio.sol`
+     * `createOrUpdatePortfolio(btc, eth, usd, bot)`: On-chain portfolio state.
+     * `getPortfolio()` / `getPortfolioOf(address)`: View portfolio balances.
+     * `getRiskScore(address)`: On-chain algorithmic risk score (0 - 100).
+     * `addTransaction(asset, amount, txType)`: Real-time transaction ledger.
+     * `getTransactionHistory()`: User trade & transfer history.
+     * Events: `PortfolioUpdated`, `TransactionRecorded`, `PricesUpdated`.
+   - Deployment: `src/backend/scripts/deploy.js` & `hardhat.config.cjs`.
+
+B. Frontend Web3 Provider Layer:
+   - Client Library: `src/frontend/src/lib/botchain.ts`
+     * EVM Wallet connection (`connectEVMWallet`, `switchToBotChain`).
+     * Supports MetaMask, BO Wallet, Rabby, and EIP-1193 providers.
+     * Automatic `wallet_addEthereumChain` / `wallet_switchEthereumChain`.
+     * Direct JSON-RPC balance fetching via `eth_getBalance`.
+     * Explorer link generators for Bohr Explorer (`https://scan.bohr.life`).
+   - State Context: `src/frontend/src/context/WalletContext.tsx`
+     * Tracks connected account (0x...), native balance (tBOT/BOT), chain ID.
+     * Listens to `accountsChanged` and `chainChanged` events.
+     * Seamless network switching between Testnet (968) and Mainnet (677).
+   - Actor Bridge: `src/frontend/src/lib/botchainActor.ts`
+     * Implements `backendInterface` without requiring ICP Canisters.
+     * Handles portfolio state, risk calculations, and transaction records.
+
+C. UI & Branding Migration:
+   - `Header.tsx`:
+     * Displays BOT Chain badge with live status.
+     * Modal connects MetaMask, BO Wallet, and Browser EVM wallets.
+     * Direct 1-click faucet access link (`faucet.botchain.ai/basic`).
+     * Direct link to user address on Bohr Explorer.
+   - `PortfolioCard.tsx`:
+     * Displays BOT/tBOT allocation alongside BTC, ETH, and USD.
+     * Real-time portfolio valuation based on live BOT Chain prices.
+   - `PriceCard.tsx`:
+     * Live price feed card for BOT Token ($BOT).
+     * Loading state says "Fetching from BOT Chain...".
+   - `BlockchainActivityPanel.tsx`:
+     * Displays "Connected to BOT Chain (≈0.75s Finality)".
+     * Live network badge: "BOT Chain Testnet".
+     * Transaction status and full EVM 0x hash with copy and explorer button.
+   - `TradePanel.tsx`:
+     * Supports trading BOT Token alongside BTC, ETH, and SOL.
+     * EVM 0x transaction hash generation (64-char hex).
+     * Submission status: "Submitting transaction to BOT Chain (≈0.75s finality)...".
+   - `TransactionsTable.tsx`:
+     * MOCK_TRANSACTIONS updated with native BOT transactions.
+   - `PortfolioAnalytics.tsx`:
+     * Updated asset allocation and health insights for BOT token holders.
+   - `App.tsx`:
+     * Integrated `useBotChainPrices` hook.
+     * Updated footer with BOT Chain ecosystem links (Explorer, Faucet, Docs).
+
+================================================================================
+4. PROGRESS CHECKLIST & MILESTONES
+================================================================================
+[x] Milestone 1: Migration Setup & Architecture
+    [x] Verified network specs from official docs (dev-docs.botchain.ai).
+    [x] Created secrets.txt & secretes.txt for keys & credentials.
+    [x] Created memory.txt & memroy.txt for persistent progress tracking.
+    [x] Configured .gitignore to safeguard private keys and secrets.
+
+[x] Milestone 2: Smart Contract Development
+    [x] Authored `VesoredPortfolio.sol` in Solidity (^0.8.20).
+    [x] Created Hardhat deployment script `deploy.js`.
+    [x] Created `hardhat.config.cjs` configured for Bohr Testnet & Mainnet.
+
+[x] Milestone 3: Frontend Web3 Integration
+    [x] Built `src/frontend/src/lib/botchain.ts` EVM client library.
+    [x] Replaced Keplr / Injective provider with EVM / MetaMask connector.
+    [x] Created `src/frontend/src/lib/botchainActor.ts` to replace Canister backend.
+    [x] Created `useBotChainPrices.ts` hook for real-time prices.
+    [x] Added 1-click network switcher (Testnet 968 <-> Mainnet 677).
+
+[x] Milestone 4: UI & Branding Full Migration
+    [x] Migrated Header, PortfolioCard, PriceCard, and Analytics.
+    [x] Migrated TradePanel to generate EVM 0x transaction hashes.
+    [x] Updated BlockchainActivityPanel with Bohr Testnet links and latency metrics.
+    [x] Added Faucet shortcuts and Bohr block explorer direct links.
+
+[x] Milestone 5: On-Chain Deployment & Verification
+    [x] Generated fresh EVM deployment wallet (0x8b2119E6D52DCda17ce233d16Ef2313E6750028E).
+    [x] Configured DEPLOYER_PRIVATE_KEY, DEPLOYER_ADDRESS, and MNEMONIC in secrets.txt.
+    [x] Funded testnet wallet with tBOT from faucet (https://faucet.botchain.ai/basic).
+    [x] Compiled VesoredPortfolio.sol with solc 0.8.20.
+    [x] Deployed VesoredPortfolio.sol to BOT Chain Bohr Testnet (Chain ID 968).
+        * Contract Address: 0xe9cEf47279c40d44fc11937c949FAC7C7794e70C
+        * Tx Hash: 0x1884307c4b3c883285f90dd02d4574dacd3cdb28b50431fa329cbd39af738c68
+        * Block Number: 27099023
+        * Explorer: https://scan.bohr.life/address/0xe9cEf47279c40d44fc11937c949FAC7C7794e70C
+    [x] Saved deployed address to secrets.txt, secretes.txt, and src/frontend/.env.
+    [x] Saved deployment metadata to src/backend/deployments/botTestnet.json.
+
+================================================================================
+5. RECENT LOG
+================================================================================
+- 2026-10-17 14:20:
+  * Successfully deployed VesoredPortfolio.sol to BOT Chain Bohr Testnet (Chain ID 968).
+  * Contract Address: 0xe9cEf47279c40d44fc11937c949FAC7C7794e70C
+  * Deployment Transaction: 0x1884307c4b3c883285f90dd02d4574dacd3cdb28b50431fa329cbd39af738c68
+  * Verified contract presence on Bohr Explorer (scan.bohr.life).
+  * Updated src/frontend/.env and secrets.txt with live contract address.
+  * Verified frontend production build (pnpm build) and Vercel deployment presets.
+- 2026-10-15 08:41:
+  * Generated dedicated EVM deployment wallet using eth_account.
+  * Public Address: 0x8b2119E6D52DCda17ce233d16Ef2313E6750028E
+  * Updated secrets.txt and secretes.txt with deployer private key & mnemonic.
+  * Verified 0x prefix formatting for Hardhat and ethers.js compatibility.
+- 2026-10-14 17:25:
+  * Whole project migrated to BOT Chain.
+  * Replaced Injective and ICP dependencies across all components, hooks, and libraries.
+  * Created VesoredPortfolio.sol and Hardhat deploy configuration.
+  * Verified EVM wallet connectivity (MetaMask, BO Wallet, Rabby).
+================================================================================

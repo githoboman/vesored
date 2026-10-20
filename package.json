@@ -1,0 +1,11 @@
+{
+  "name": "vesored",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Vesored - AI Behavioral Portfolio Analytics & Risk Engine on BOT Chain",
+  "scripts": {
+    "dev": "pnpm --prefix src/frontend dev",
+    "build": "pnpm --prefix src/frontend build",
+    "preview": "pnpm --prefix src/frontend preview"
+  }
+}
