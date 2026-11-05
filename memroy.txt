@@ -130,8 +130,8 @@ C. UI & Branding Migration:
     [x] Updated BlockchainActivityPanel with Bohr Testnet links and latency metrics.
     [x] Added Faucet shortcuts and Bohr block explorer direct links.
 
-[x] Milestone 5: On-Chain Deployment & Verification
-    [x] Generated fresh EVM deployment wallet (0x8b2119E6D52DCda17ce233d16Ef2313E6750028E).
+[x] Milestone 5: On-Chain Deployment & Verification (Testnet)
+    [x] Generated dedicated EVM deployment wallet (0x8b2119E6D52DCda17ce233d16Ef2313E6750028E).
     [x] Configured DEPLOYER_PRIVATE_KEY, DEPLOYER_ADDRESS, and MNEMONIC in secrets.txt.
     [x] Funded testnet wallet with tBOT from faucet (https://faucet.botchain.ai/basic).
     [x] Compiled VesoredPortfolio.sol with solc 0.8.20.
@@ -142,6 +142,19 @@ C. UI & Branding Migration:
         * Explorer: https://scan.bohr.life/address/0xe9cEf47279c40d44fc11937c949FAC7C7794e70C
     [x] Saved deployed address to secrets.txt, secretes.txt, and src/frontend/.env.
     [x] Saved deployment metadata to src/backend/deployments/botTestnet.json.
+
+[x] Milestone 6: On-Chain Deployment & Verification (Mainnet)
+    [x] Funded deployer wallet on BOT Chain Mainnet with 0.0176 BOT.
+    [x] Deployed VesoredPortfolio.sol to BOT Chain Mainnet (Chain ID 677).
+        * Contract Address: 0xe9cEf47279c40d44fc11937c949FAC7C7794e70C
+        * Tx Hash: 0x2f4d3490347dba538993024687c4659a95a2947eb99071f45c6d2c23c5c307c4
+        * Block Number: 29224819
+        * Gas Used: 870,063 units
+        * Gas Cost: 0.01740126 BOT
+        * Status: SUCCESS (1)
+        * Explorer: https://scan.botchain.ai/address/0xe9cEf47279c40d44fc11937c949FAC7C7794e70C
+    [x] Saved mainnet deployment record to src/backend/deployments/botMainnet.json.
+    [x] Updated secrets.txt and secretes.txt with MAINNET_PORTFOLIO_CONTRACT_ADDRESS.
 
 ================================================================================
 5. RECENT LOG

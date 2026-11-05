@@ -1,0 +1,84 @@
+[
+  {
+    "action": "Contract Deployment (VesoredPortfolio.sol)",
+    "tx_hash": "0x1884307c4b3c883285f90dd02d4574dacd3cdb28b50431fa329cbd39af738c68",
+    "block": 27099023,
+    "from": "0x8b2119E6D52DCda17ce233d16Ef2313E6750028E",
+    "to": "Contract Creation (0xe9cEf47279c40d44fc11937c949FAC7C7794e70C)",
+    "method": "deploy()",
+    "details": "Deployed VesoredPortfolio core contract to Bohr Testnet",
+    "status": "Success (1)"
+  },
+  {
+    "action": "createOrUpdatePortfolio (Initial Allocation)",
+    "tx_hash": "0x95f8ecec659ac756a5c4c0c9c6f903494c2e36f57b0efbcc123cd40683978bd5",
+    "block": 27514913,
+    "from": "0x8b2119E6D52DCda17ce233d16Ef2313E6750028E",
+    "to": "0xe9cEf47279c40d44fc11937c949FAC7C7794e70C",
+    "method": "createOrUpdatePortfolio",
+    "details": "Initialize on-chain portfolio: 1.24 BTC, 8.65 ETH, $15,000 USD, 10,000 BOT",
+    "gas_used": 157658,
+    "gas_cost_tbot": "0.00315316",
+    "status": "Success (1)"
+  },
+  {
+    "action": "addTransaction (Buy BOT Token)",
+    "tx_hash": "0x82ee86b2ebce4ebbc9d9e4748632351791fae883dc0504b80d8cdec4328c5142",
+    "block": 27514920,
+    "from": "0x8b2119E6D52DCda17ce233d16Ef2313E6750028E",
+    "to": "0xe9cEf47279c40d44fc11937c949FAC7C7794e70C",
+    "method": "addTransaction",
+    "details": "Execute trade: Buy 1,500 BOT at market price",
+    "gas_used": 116917,
+    "gas_cost_tbot": "0.00233834",
+    "status": "Success (1)"
+  },
+  {
+    "action": "addTransaction (Sell ETH Rebalance)",
+    "tx_hash": "0xfbaf279d9680e87801baeaed93e10767ad258c21415c4290c332e44a5516cf41",
+    "block": 27514927,
+    "from": "0x8b2119E6D52DCda17ce233d16Ef2313E6750028E",
+    "to": "0xe9cEf47279c40d44fc11937c949FAC7C7794e70C",
+    "method": "addTransaction",
+    "details": "Execute trade: Sell 2.5 ETH for risk exposure rebalancing",
+    "gas_used": 119717,
+    "gas_cost_tbot": "0.00239434",
+    "status": "Success (1)"
+  },
+  {
+    "action": "addTransaction (Deposit tBOT Gas Vault)",
+    "tx_hash": "0x736ff5cbfa879954264b536acab1bcc9e513e4dc3010854a5f94333b6e0034a0",
+    "block": 27514936,
+    "from": "0x8b2119E6D52DCda17ce233d16Ef2313E6750028E",
+    "to": "0xe9cEf47279c40d44fc11937c949FAC7C7794e70C",
+    "method": "addTransaction",
+    "details": "Deposit: 500 tBOT into Vesored native gas vault",
+    "gas_used": 119741,
+    "gas_cost_tbot": "0.00239482",
+    "status": "Success (1)"
+  },
+  {
+    "action": "updatePrices (Oracle Price Update)",
+    "tx_hash": "0xb1db50b513baf71d73962bca59c7c59e9b8771fb79a51c3c642014d1ea8570b2",
+    "block": 27514944,
+    "from": "0x8b2119E6D52DCda17ce233d16Ef2313E6750028E",
+    "to": "0xe9cEf47279c40d44fc11937c949FAC7C7794e70C",
+    "method": "updatePrices",
+    "details": "Oracle update: BTC=$66,250, ETH=$3,350, BOT=$0.85",
+    "gas_used": 40710,
+    "gas_cost_tbot": "0.0008142",
+    "status": "Success (1)"
+  },
+  {
+    "action": "createOrUpdatePortfolio (Rebalanced Portfolio State)",
+    "tx_hash": "0xc96b438fc6ac46bb4e811599c3960c5c246bb5fda0ec6ea1ebcba2136bde242f",
+    "block": 27514951,
+    "from": "0x8b2119E6D52DCda17ce233d16Ef2313E6750028E",
+    "to": "0xe9cEf47279c40d44fc11937c949FAC7C7794e70C",
+    "method": "createOrUpdatePortfolio",
+    "details": "Update portfolio state post-rebalance: 1.24 BTC, 6.15 ETH, $23,375 USD, 11,500 BOT",
+    "gas_used": 49470,
+    "gas_cost_tbot": "0.0009894",
+    "status": "Success (1)"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "network": "botMainnet",
+  "chainId": 677,
+  "contractAddress": "0xe9cEf47279c40d44fc11937c949FAC7C7794e70C",
+  "transactionHash": "0x2f4d3490347dba538993024687c4659a95a2947eb99071f45c6d2c23c5c307c4",
+  "blockNumber": 29224819,
+  "deployer": "0x8b2119E6D52DCda17ce233d16Ef2313E6750028E",
+  "gasUsed": 870063,
+  "gasCostBOT": "0.01740126",
+  "timestamp": "2026-11-05T18:24:13Z"
+}
